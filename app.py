@@ -6,6 +6,27 @@ import seaborn as sns
 from sklearn.metrics import classification_report, confusion_matrix
 
 st.title("Bank Marketing Classification App")
+st.subheader("Download Dataset")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    with open("bank-full.csv", "rb") as file:
+        st.download_button(
+            label="Download bank-full.csv",
+            data=file,
+            file_name="bank-full.csv",
+            mime="text/csv"
+        )
+
+with col2:
+    with open("bank.csv", "rb") as file:
+        st.download_button(
+            label="Download bank.csv",
+            data=file,
+            file_name="bank.csv",
+            mime="text/csv"
+        )
 
 # Load scaler
 scaler = joblib.load("model/scaler.pkl")
